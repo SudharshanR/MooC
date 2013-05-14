@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>category information</title>
+</head>
+
+<body bgColor="#A9A9A9">
+<div align="center">
+
+<h1>Course Details:</h1>
+<form >
+<input type="hidden" name="email" value="{{ email }}"/>
+{% csrf_token %}
+<table border="1">
+<tr>
+	<th><div class="form-row"><span class="label"> Course Title</span></th>
+	<th><div class="form-row"><span class="label"> {{title}} </span></th>
+</tr>
+
+<tr>
+	<th><div class="form-row"><span class="label"> Course Description</span></th>
+	<th><div class="form-row"><span class="label"> {{description}} </span></th>
+</tr>
+<tr>
+	<th><div class="form-row"><span class="label"> Department</span></th>
+	<th><div class="form-row"><span class="label"> {{dept}}</span></th>
+</tr>
+<tr>
+	<th><div class="form-row"><span class="label"> Course Category</span></th>
+	<th><div class="form-row"><span class="label"> {{category}}</span></th>
+</tr>
+</table>
+</form>
+<table>
+	<tr>
+		<td>
+			<form method="POST" action="/home">
+			<input type="hidden" name="email" value="{{ email }}"/>
+			{% csrf_token %}
+			<input type="submit" value="back to home"/>
+			</form>
+		</td>
+		<td>
+			<form method="POST" action="/updateEnrolled">
+			{% csrf_token %}
+			<input type="hidden" name="id" value="{{id}}"/>
+			<input type="hidden" name="email" value="{{email}}"/>
+			<input type="submit" value="Enroll"/>
+			</form>
+		</td>
+	</tr>
+</table>
+
+</div>
+</body>
+</html>

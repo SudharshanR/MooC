@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>home page</title>
+</head>
+<body bgColor="#A9A9A9">
+<div align="center">
+<h1 align="center" >Massively Open Online Course</h1>
+<h2 align="center" >User Home</h2>
+<form method="GET" action="/user/signout">
+{% csrf_token %}
+<input type="submit" value="signout"/>
+</form>	
+<form method="POST" action="/getUserForUpdate">
+{% csrf_token %}
+<input type="hidden" name="email" value="{{ email }}"/>
+<input type="submit" value="getUserForUpdate">
+</form>
+<form method="POST" action="/getUser">
+{% csrf_token %}
+<input type="hidden" name="email" value="{{ email }}"/>
+<input type="submit" value="getinfo"/>
+</form>
+<hr>
+<h2 align="center" >Course Home</h2>
+<form method="POST" action="/addcourse">
+{% csrf_token %}
+<input type="hidden" name="email" value="{{ email }}"/>
+<input type="submit" value="Add Course">
+</form>
+<form method="POST" action="/course/list">
+{% csrf_token %}
+<input type="hidden" name="email" value="{{ email }}"/>
+<input type="submit" value="List All Courses">
+</form>
+<form method="POST" action="/course/enrolled">
+{% csrf_token %}
+<input type="hidden" name="email" value="{{ email }}"/>
+<input type="submit" value="List Enrolled Courses">
+</form>
+<form method="POST" action="/course/owned">
+{% csrf_token %}
+<input type="hidden" name="email" value="{{ email }}"/>
+<input type="submit" value="List Owned Courses">
+</form>
+<hr>
+<h2 align="center" >Category Home</h2>
+<form method="POST" action="/createCategoryPage">
+{% csrf_token %}
+<input type="hidden" name="email" value="{{ email }}"/>
+<input type="submit" value="Add Category">
+</form>
+<form method="POST" action="/listCategories">
+{% csrf_token %}
+<input type="hidden" name="email" value="{{ email }}"/>
+<input type="submit" value="List All Category">
+</form><hr>
+<h2 align="center" >Announcement Home</h2>
+<form method="POST" action="/announcementcollection">
+{% csrf_token %}
+<input type="hidden" name="email" value="{{ email }}"/>
+<input type="submit" value="Create Announcement">
+</form>
+<form method="POST" action="/announcement/list">
+{% csrf_token %}
+<input type="hidden" name="email" value="{{ email }}"/>
+<input type="submit" value="List All Announcement">
+</form><hr>
+<h2 align="center" >Discussion Home</h2>
+<form method="POST" action="/discussioncollection">
+{% csrf_token %}
+<input type="hidden" name="email" value="{{ email }}"/>
+<input type="submit" value="Create Discussion">
+</form>
+<form method="POST" action="/announcement/list">
+{% csrf_token %}
+<input type="hidden" name="email" value="{{ email }}"/>
+<input type="submit" value="List All Announcement">
+</form>
+</div>
+</body>
+</html>

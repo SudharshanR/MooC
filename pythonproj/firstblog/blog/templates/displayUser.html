@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>home page</title>
+</head>
+<body bgColor="#A9A9A9">
+<div align="center">
+<h1 align="center" >Massively Open Online Course</h1>
+<h2 align="center" >User Home</h2>
+<div align="center">
+<form name="form1" method="post"  action="/home" onSubmit="">
+
+{% csrf_token %}
+
+
+
+<table border="1">
+<tr>
+<th>
+Account Information
+</th>
+</tr>
+<input type="hidden" name="email" value="{{ email }}"/>
+<tr>
+<th><div class="form-row"><span class="label">  First Name*</span></th><td><input type="text" name="fname" value={{firstName}}> </div></td>
+</tr>
+
+<tr>
+<th><div class="form-row"><span class="label">  Last Name*</span></th><td><input type="text" name="lname" value="{{lastName}}"/></div></td>
+</tr>
+
+<tr>
+<th><div class="form-row"><span class="label"> Owned</span></th><td><input type="text" name="address" value={{own}}> </div></td>
+</tr>
+
+
+<tr>
+<th><div class="form-row"><span class="label">Quizes</span></th><td><input type="text" name="city" value={{quizzes}}> </div></td>
+</tr>
+
+
+
+<tr>
+<th><div class="form-row"><span class="label">enrolled</span></th><td><input type="text" name="state" value={{enrolled}}> </div></td>
+</tr>
+
+
+<tr>
+<th><div class="form-row"><span class="label">status</span></th><td><input type="text" name="zipcode" value={{status}}> </div></td>
+</tr>
+
+<tr>
+<th><div class="form-row"><input class="submit"  type="submit" value="Back To Home"/> </div></th>
+
+
+
+</table>
+
+</div>
+
+</form>
+</div>
+</body>
+</html>

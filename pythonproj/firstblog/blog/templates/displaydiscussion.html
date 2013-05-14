@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>Discussion information</title>
+</head>
+
+<body>
+<center>
+<form >
+{% csrf_token %}
+title:<input type="text" name="title" value="{{title}}"/> 
+<br/>
+Created By:<input type="textarea" name="created_by" value="{{created_by}}">
+<br/>
+Created At:<input type="text" name="created_at" value="{{created_at}}">
+<br/>
+Updated At:<input type="text" name="zipcode" value="{{updated_at}}">
+<br/>
+</form>
+<br/>
+<form method="POST" action="/home">
+{% csrf_token %}
+<input type="hidden" name="email" value="{{ email }}"/>
+<input type="submit" value="back to home"/>
+</fomr>
+</center>
+</body>
+</html>

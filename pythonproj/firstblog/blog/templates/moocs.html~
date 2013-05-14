@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head><META http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+<body bgColor="#A9A9A9">
+
+<div>
+<h1 align="center" >Massively Open Online Course</h1>
+<h2 align="center" >List Of Registered Moocs</h2>
+<center>
+<form name="mooc_form" method="post" action="/moocsToHome"  >
+<input type="hidden" name="email" value="{{ email }}"/>
+<br>
+
+{% csrf_token %}
+Select Mooc*:
+<select width="100%" name="primaryurl">
+{% for a in groups %}
+
+
+  <option value="{{ a.PrimaryUrl }}">{{ a.group }}</option>
+  <input type="hidden" name="moocName" value="{{ a.group }}"/>	
+
+{% endfor %}
+</select><br><br><br><br>
+
+
+<input type="submit" value="SUBMIT"><br>
+
+</form>
+</center>
+</div>
+
+</body></html>

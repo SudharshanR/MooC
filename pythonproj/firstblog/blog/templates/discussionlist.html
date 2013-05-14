@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>My First Heading</h1>
+{% for a in res %}
+{% for cid,title in a.items %}
+<form method="POST" action="/getdiscussion">
+{% csrf_token %}
+<input type="hidden" name="cid" value="{{ cid }}" />
+<input type="hidden" name="email" value="{{ email }}"/>
+<input type="submit" name="title" value="{{ title }}"/>
+<br/>
+</form>
+{% endfor %}
+{% endfor %}
+</body>
+</html>

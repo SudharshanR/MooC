@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body bgColor="#A9A9A9">
+<div align="center">
+
+<h1>Course List</h1>
+{% if res is None: %}
+<h2>You have not enrolled in any course ....</h2>
+{% endif %}
+{% else: %}
+{% for a in res %}
+{% for cid,name in a.items %}
+<form method="POST" action="/dropEnrolled">
+<input type="hidden" name="email" value="{{ email }}"/>
+{% csrf_token %}
+<table border="1">
+<tr>
+	<th><div class="form-row"><input type="hidden" name="cid" value="{{ cid }}" /></th>
+	<th><div class="form-row"><input type="hidden" name="email" value="{{ email }}"/></th>
+	<th><div class="form-row"><input type="submit" name="cname" value="{{ name }}"/></th>
+	<th><input type="submit" value="Drop Course"/></th>
+</tr>
+</table>
+</form>
+{% endfor %}
+{% endfor %}
+{% endelse %}
+</div>
+</body>
+</html>

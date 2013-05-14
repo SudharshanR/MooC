@@ -1,0 +1,29 @@
+from django.db import models
+
+# Create your models here.
+
+class posts(models.Model):
+ author = models.CharField(max_length = 30)
+ title = models.CharField(max_length = 100)
+ bodytext = models.TextField()
+ timestamp = models.DateTimeField()
+
+
+class MOOC(models.Model):
+    group = models.CharField(max_length=256)
+    primary_URL = models.CharField(max_length=512)
+    secondary_URL = models.CharField(max_length=512)
+    is_default = models.BooleanField(default=False)
+    
+    # Python 3: def __str__(self):
+    def __unicode__(self):
+       return self.group
+
+class groups(models.Model):
+   group=models.CharField(max_length=50)
+   PrimaryUrl=models.CharField(max_length=100)
+   SecondaryUrl=models.CharField(max_length=100)
+   is_default = models.BooleanField(default=False)
+
+
+  

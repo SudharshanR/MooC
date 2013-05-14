@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body bgColor="#A9A9A9">
+<div align="center">
+<h2 align="center" >Category List :</h2>
+{% for a in res %}
+{% for cid,name in a.items %}
+<form method="POST" action="/getCategory">
+<input type="hidden" name="email" value="{{ email }}"/>
+{% csrf_token %}
+<input type="hidden" name="cid" value="{{ cid }}" />
+<input type="submit" name="cname" value="{{ name }}"/>
+<br/>
+</form>
+{% endfor %}
+{% endfor %}
+</div>
+</body>
+</html>
+

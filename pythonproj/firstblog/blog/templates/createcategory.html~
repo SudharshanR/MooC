@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>create category</title>
+</head>
+<body bgColor="#A9A9A9">
+<div align="center">
+<h2 align="center" >Category List :</h2>
+<form method="post" action="/createCategory" >
+<input type="hidden" name="email" value="{{ email }}"/>
+{% csrf_token %}
+name:<input type="text" name="name"/>
+<br/>
+description:<input type="textarea" name="desc" />
+<br/>
+date:<input type="text" name="date"/>
+<br/>
+status:<input type="text" name="status"/>
+<br/>
+<input type="submit" value="create category"/>
+</form>
+</div>
+</body>
+</html>

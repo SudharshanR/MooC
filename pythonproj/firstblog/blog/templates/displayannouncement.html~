@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>announcement information</title>
+</head>
+
+<body>
+<center>
+<form >
+<input type="hidden" name="email" value="{{ email }}"/>
+{% csrf_token %}
+name:<input type="text" name="fname" value="{{title}}"/>
+<br/>
+description:<input type="textarea" name="address" value="{{description}}">
+<br/>
+createDate:<input type="text" name="city" value="{{createDate}}">
+<br/>
+status:<input type="text" name="zipcode" value="{{status}}">
+<br/>
+</form>
+<br/>
+<form method="POST" action="/home">
+{% csrf_token %}
+<input type="submit" value="back to home"/>
+</fomr>
+</center>
+</body>
+</html>
+ 

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<body bgColor="#A9A9A9">
+<div align="center">
+
+<h1>Course List</h1>
+{% for a in res %}
+{% for cid,name in a.items %}
+{% csrf_token %}
+<table border="1">
+<tr>
+	<th><div class="form-row"><input type="hidden" name="cid" value="{{ cid }}" /></th>
+	<th><div class="form-row"><input type="hidden" name="email" value="{{ email }}"/></th>
+	<th><div class="form-row"><input type="submit" name="cname" value="{{ name }}"/></th>
+	<th>
+		<td>
+			<form method="POST" action="/updatecourse">
+			{% csrf_token %}
+			<input type="hidden" name="id" value="{{cid}}"/>
+			<input type="hidden" name="email" value="{{email}}"/>
+			<input type="submit" value="Update Course"/>
+			</form>
+		</td>
+	</th>
+	<th>
+		<td>
+			<form method="POST" action="/deletecourse">
+			{% csrf_token %}
+			<input type="hidden" name="id" value="{{cid}}"/>
+			<input type="hidden" name="email" value="{{email}}"/>
+			<input type="submit" value="Delete Course"/>
+			</form>
+		</td>
+	</th>
+</tr>
+</table>
+{% endfor %}
+{% endfor %}
+</div>
+</body>
+</html>
